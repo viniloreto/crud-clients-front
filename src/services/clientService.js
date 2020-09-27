@@ -1,16 +1,19 @@
 import axios from 'axios';
 
-const basePath = process.env.REACT_APP_API_URL;
+// const basePath = 'http://crudclients.herokuapp.com';
+const basePath = 'http://localhost:8082';
 
 class ClientService {
     
-    async getClients(page, limit) {
+    async getClients({currentPage, limit, inputValue}) {
         let uri = `${basePath}/clients/allClients`;
-
-        if(page) {
-            uri += `?page=${page}`
+        if(currentPage) {
+            uri += `?page=${currentPage}`
             if(limit) {
                 uri += `&limit=${limit}`
+            }
+            if(inputValue) {
+                uri += `&search=${inputValue}`
             }
         }
 

@@ -5,6 +5,8 @@ import ClientService from './services/clientService';
 import ClientsTable from './componentes/ClientTable';
 import ModalForm from './componentes/ModalForm';
 import Pagination from './componentes/Pagination';
+import ConfirmationModal from './componentes/ConfirmationModal';
+
 
 export default function App() {
   const [ clients, setClients ] = useState([]);
@@ -13,10 +15,13 @@ export default function App() {
   const [ client, setClient ] = useState({});
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ limit, setLimit ] = useState(5);
+  const [ inputValue, setInputValue ] = useState(null);
+  const [ confModalVisible, setConfModalVisible ] = useState(false)
+  const [ clientToDelete, setClientToDelete ] = useState(null);
 
   useEffect(() => {
     const fetchClients = async () => {      
-      const response = await ClientService.getClients(currentPage, limit);
+      const response = await ClientService.getClients({currentPage, limit});
       setClients(response.clients ? response.clients : []);
       setTotalClients(response.totalClients ? response.totalClients : null)
     }
@@ -28,16 +33,63 @@ export default function App() {
     setClient(object);
   }
 
+  async function searchClients() {
+    if(inputValue) {
+      const data = await ClientService.getClients({currentPage, limit, inputValue})
+      setClients(data.clients ? data.clients : []);
+      setTotalClients(data.totalClients ? data.totalClients : null)
+    } else {
+      setClient({})
+    }
+  }
+
+  function confirmationModal(id) {
+    setConfModalVisible(true);
+    setClientToDelete(id)
+  }
+
   return (
-  <div className="paddingContent">
-    <ClientsTable clients={clients} openModal={openModal}/>
-    <div className="row pag">
-      <Pagination clientsPerPage={limit} totalClients={totalClients} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
-      <button onClick={openModal} className="btn btn-primary"> novo item </button>
+    <div>
+
+      <div className="navbars">
+        <a href="https://www.linkedin.com/in/viniciusloreto/">Vinicius Loreto Ferreira</a>
+      </div>
+
+      <hr/>
+
+      <div className="container-fluid mag">
+        <div id="top" className="row">
+          <div className="col-sm-3">
+            <h2>Clientes</h2>
+         </div>
+
+          <div className="col-sm-6">
+            <div className="input-group h2">
+              <input  className="form-control" type="text" onChange={(e) => setInputValue(e.target.value)} placeholder="Pesquisar Clientes pelo NOME"></input>
+              
+              <button className="btn btn-primary" type="submit" onClick={() => searchClients('vini')}>
+                <span> Pesquisar</span>
+              </button>
+				      
+            </div>
+          </div>
+          <div className="col-sm-3">
+            <button onClick={openModal} className="btn btn-primary bton"> Adicionar Cliente </button>
+          </div>
+        </div>
+
+        <hr/>
+
+        <ClientsTable clients={clients} delCliente={() => {setClientToDelete()}} openModal={openModal} confiModal={confirmationModal}/>
+
+        <div className="row">
+          <Pagination clientsPerPage={limit} totalClients={totalClients} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+        </div>
+
+        {isModalVisible ? <ModalForm data={client} closeModal={() => setIsModalVisible(false)} att={setClient}/> : null}
+        {confModalVisible ? <ConfirmationModal delId={clientToDelete} confirmationModal={() => setConfModalVisible(false)} att={setClient} /> : null }
+      </div>
     </div>
-
-    {isModalVisible ? <ModalForm data={client} closeModal={() => setIsModalVisible(false)} att={setClient}/> : null}
-
-  </div>
   )
 }
+

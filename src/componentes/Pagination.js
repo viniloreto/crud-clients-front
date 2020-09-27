@@ -12,7 +12,7 @@ const Pagination = ({ clientsPerPage, totalClients, setCurrentPage, currentPage}
         setCurrentPage(number);
     }
     return (
-        <nav>
+        <div className="col-md-12">
             <ul className="pagination">
                 { currentPage > 1 ? (
                     <li className="page-item"> <button onClick={() => paginate(currentPage - 1)} className="page-link">Anterior</button></li>
@@ -29,7 +29,7 @@ const Pagination = ({ clientsPerPage, totalClients, setCurrentPage, currentPage}
                     <li className="page-item"> <button onClick={() => paginate(currentPage + 1)} className="page-link">Próxima</button></li>
                 ) : null }
             </ul>
-        </nav>
+        </div>
     )
 }
 
