@@ -1,0 +1,33 @@
+.paddingContent {
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.errorForm {
+    color: red;
+    font-weight: bold;
+}
+
+.ModalForm {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalConteiner {
+    background-color: white;
+    width: 60%;
+    height: 60%;
+    border-radius: 20px;;
+}
+
+.pag {
+    justify-content: space-between;
+}
