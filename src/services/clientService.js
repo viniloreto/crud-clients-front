@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const basePath = process.enc.REACT_APP_API_URL;
+const basePath = process.env.REACT_APP_API_URL;
 
 class ClientService {
     
