@@ -57,24 +57,23 @@ export default function App() {
 
       <hr/>
 
-      <div className="container-fluid mag">
+      <div className="container-fluid mag fsize">
         <div id="top" className="row">
           <div className="col-sm-3">
-            <h2>Clientes</h2>
          </div>
 
           <div className="col-sm-6">
             <div className="input-group h2">
               <input  className="form-control" type="text" onChange={(e) => setInputValue(e.target.value)} placeholder="Pesquisar Clientes pelo NOME"></input>
               
-              <button className="btn btn-secondary" type="submit" onClick={() => searchClients('vini')}>
+              <button className="btn btn-secondary btn-sm" type="submit" onClick={() => searchClients('vini')}>
                 <span> Pesquisar</span>
               </button>
 				      
             </div>
           </div>
           <div className="col-sm-3">
-            <button onClick={openModal} className="btn btn-secondary bton"> Adicionar Cliente </button>
+            <button onClick={openModal} className="btn btn-secondary bton btn-md"> Adicionar Cliente </button>
           </div>
         </div>
 

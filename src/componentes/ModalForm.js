@@ -34,6 +34,8 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                     </div>
                     <div className="modal-body">
                         <form  onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group">
+                            
                             <label>
                                 Nome:
                                 <input 
@@ -107,7 +109,7 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                                     maxLength="14" 
                                     defaultValue={ data ? data.country : null }
                                     ref={register({
-                                        required: "Enter your country",
+                                        required: "Enter your  country",
                                         pattern: {
                                             value: /[a-zA-Z]+/,
                                             message: "Enter a valid country",
@@ -126,7 +128,7 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                                 
                                 <button className="btn btn-secondary" onClick= {closeModal}>Close</button>  
                             </div>
-
+                            </div>    
                         </form>
                     </div>
                 </div>
