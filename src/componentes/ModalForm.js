@@ -39,6 +39,7 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                             <label>
                                 Nome:
                                 <input 
+                                    className="form-control" 
                                     type="text"
                                     name="name"  
                                     defaultValue={ data ? data.name : null }
@@ -56,7 +57,8 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
 
                             <label>
                                 Idade:
-                                <input 
+                                <input
+                                    className="form-control" 
                                     type="number"
                                     name="age" 
                                     min="1" 
@@ -72,6 +74,7 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                             <label>
                                 CPF:
                                 <input 
+                                    className="form-control"
                                     type="number"
                                     name="cpf" 
                                     max="99999999999"
@@ -86,6 +89,7 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                             <label>
                                 E-mail:
                                 <input 
+                                    className="form-control" 
                                     type="text"
                                     name="email"  
                                     maxLength="30"
@@ -104,6 +108,7 @@ const ModalForm = ({data = {}, closeModal = {}, att = {}}) => {
                             <label>
                                 País:
                                 <input 
+                                    className="form-control" 
                                     type="text"
                                     name="country" 
                                     maxLength="14" 

@@ -49,11 +49,10 @@ export default function App() {
   }
 
   return (
-    <div>
-
-      <div className="navbars">
+    <div >
+      <nav className="navbars">
         <a href="https://www.linkedin.com/in/viniciusloreto/">Vinicius Loreto Ferreira</a>
-      </div>
+      </nav>
 
       <hr/>
 
