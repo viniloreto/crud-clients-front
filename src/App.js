@@ -67,14 +67,14 @@ export default function App() {
             <div className="input-group h2">
               <input  className="form-control" type="text" onChange={(e) => setInputValue(e.target.value)} placeholder="Pesquisar Clientes pelo NOME"></input>
               
-              <button className="btn btn-primary" type="submit" onClick={() => searchClients('vini')}>
+              <button className="btn btn-secondary" type="submit" onClick={() => searchClients('vini')}>
                 <span> Pesquisar</span>
               </button>
 				      
             </div>
           </div>
           <div className="col-sm-3">
-            <button onClick={openModal} className="btn btn-primary bton"> Adicionar Cliente </button>
+            <button onClick={openModal} className="btn btn-secondary bton"> Adicionar Cliente </button>
           </div>
         </div>
 

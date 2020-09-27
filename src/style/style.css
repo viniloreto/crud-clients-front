@@ -21,13 +21,6 @@
     align-items: center;
 }
 
-.modalConteiner {
-    background-color: white;
-    width: 60%;
-    height: 40%;
-    border-radius: 20px;;
-}
-
 .pag {
     justify-content: space-between;
 }

@@ -28,7 +28,7 @@ const ClientsTable = ({ clients, openModal, confiModal }) => {
                     <td>{client.email}</td>
                     <td>{client.country}</td>
                     <td>
-                            <button onClick={() => openModal(true, client)} className="btn btn-warning btn-xs">Editar</button>
+                            <button onClick={() => openModal(true, client)} className="btn btn-secondary btn-xs">Editar</button>
                             <button onClick={() => confiModal(client.id)} className="btn btn-danger btn-xs">Excluir</button>
                     </td>
                   </tr>
