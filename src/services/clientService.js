@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// const basePath = 'http://crudclients.herokuapp.com';
-const basePath = 'http://localhost:8082';
+const basePath = process.env.REACT_APP_API_URL;
 
 class ClientService {
     
